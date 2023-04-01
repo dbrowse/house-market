@@ -2,7 +2,7 @@
 function ForgotPassword() {
     return (
         <div>
-            <h1>ForgotPassword</h1>
+            <h1>Forgot Password</h1>
         </div>
     )
 }
