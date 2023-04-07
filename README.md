@@ -1,2 +1,2 @@
 # house-market
-React , firebase project for fun 
+React , firebase project for softuni 
