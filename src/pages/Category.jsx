@@ -9,7 +9,7 @@ import ListingItem from "../components/ListingItem"
 import { async } from "@firebase/util"
 
 
-function Offers() {
+function Category() {
 
     const [listings, setListings] = useState(null)
 
@@ -29,7 +29,7 @@ function Offers() {
                 //query firebase 9 way
                 const makeQuery = query(
                     listingsRef,
-                    where("offer", '==', true),
+                    where("type", '==', params.categoryName),
                     orderBy("timestamp", "desc"),
                     limit(10)
                 )
@@ -54,13 +54,15 @@ function Offers() {
             }
         }
         fetchListings()
-    }, [])
+    }, [params.categoryName])
 
     return (
         <div className="category">
             <header>
                 <p className="pageHeader">
-                    Offers
+                    {params.categoryName === 'rent'
+                        ? "Places for rent"
+                        : "Places for sale"}
                 </p>
             </header>
             {loading ? (<Spinner />
@@ -74,9 +76,9 @@ function Offers() {
                         </ul>
                     </main>
 
-                </>) : (<p>There are no current offers</p>)}
+                </>) : (<p>No listings for {params.categoryName}</p>)}
         </div>
     )
 }
 
-export default Offers
+export default Category

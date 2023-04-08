@@ -18,6 +18,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 # house-market pages 
 
 ### Functionality
-# house-market
-# house-market
-# house-market
+# Singin page
+# Singout page
+# Google auth
+# Change Profile 
+# Sell or rent options 
+# Offers
+# Listing to upload new offer
+# Geo location -  //API AIzaSyCdxcXg7v2a6zKf1HQ7jhBhYDJjPgLBVA8
+# 

@@ -1,11 +1,11 @@
 import { useState } from "react"
+import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom"
-import { getAuth, createUserWithEmailAndPassword, updateCurrentUser, signInWithCredential, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg"
 import visibilitiIcon from "../assets/svg/visibilityIcon.svg"
-import { async } from "@firebase/util"
-
+import OAuth from "../components/OAuth";
 
 
 
@@ -23,7 +23,7 @@ function Signin() {
     const onChange = (e) => {
         setFormData((prevState) => ({
             ...prevState,
-            [e.target.id]: e.target.value,
+            [e.target.id]: e.target.value
 
         }))
     }
@@ -42,7 +42,7 @@ function Signin() {
 
         } catch (error) {
 
-            console.log(error)
+            toast.error('Bad user credentials')
         }
 
     }
@@ -100,6 +100,8 @@ function Signin() {
                         </button>
                     </div>
                 </form>
+
+                <OAuth />
                 <Link to="/sign-up" className="registerLink" >
                     Sign Up Instead
                 </Link>

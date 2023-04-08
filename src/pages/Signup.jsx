@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { db } from "../firebase.config"
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg"
 import visibilitiIcon from "../assets/svg/visibilityIcon.svg"
 import { async } from "@firebase/util"
+import OAuth from "../components/OAuth";
 
 
 
@@ -34,17 +36,17 @@ function Signup() {
     const onSubmit = async (e) => {
         e.preventDefault()
         try {
-            const auth = getAuth();
+            const auth = getAuth()
             const userCredential = await createUserWithEmailAndPassword(auth, email, password)
 
             const user = userCredential.user
 
             updateProfile(auth.currentUser, {
-                displayName: name,
+                displayName: name
             })
 
             const formDataCopy = { ...formData }
-            delete formData.password
+            delete formDataCopy.password
             formDataCopy.timeStamp = serverTimestamp()
 
 
@@ -52,7 +54,7 @@ function Signup() {
 
             navigate('/')
         } catch (error) {
-            console.log(error);
+            toast.error('Bad user credentials')
         }
 
     }
@@ -119,6 +121,7 @@ function Signup() {
                         </button>
                     </div>
                 </form>
+                <OAuth />
                 <Link to="/sign-in" className="registerLink" >
                     Sign In Instead
                 </Link>
