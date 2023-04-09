@@ -17,7 +17,7 @@ import Spinner from '../components/Spinner'
 
 function CreateListing() {
   // eslint-disable-next-line
-  const [geolocationEnabled, setGeolocationEnabled] = useState(true)
+  const [geolocationEnabled, setGeolocationEnabled] = useState(false)
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     type: 'rent',
@@ -98,8 +98,6 @@ function CreateListing() {
       )
 
       const data = await response.json()
-
-      //console.log(data)
 
       geolocation.lat = data.results[0]?.geometry.location.lat ?? 0
       geolocation.lng = data.results[0]?.geometry.location.lng ?? 0
@@ -200,7 +198,7 @@ function CreateListing() {
     if (e.target.files) {
       setFormData((prevState) => ({
         ...prevState,
-        images: e.target.files
+        images: e.target.files,
       }))
     }
 
@@ -349,8 +347,6 @@ function CreateListing() {
             onChange={onMutate}
             required
           />
-
-
 
           {!geolocationEnabled && (
             <div className='formLatLng flex'>

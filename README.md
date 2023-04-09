@@ -15,15 +15,20 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 
-# house-market pages 
+## Project house-market pages 
+# Category
 
 ### Functionality
-# Singin page
-# Singout page
-# Google auth
-# Change Profile 
-# Sell or rent options 
+# Singup page - register 
+# Singin page - user can sign in after signup with google auth also
+# Singout page - logout the user 
+# Google auth - easy login 
+# Change Profile - if need to change your email / name / password 
+# Sell or rent options - 
 # Offers
 # Listing to upload new offer
-# Geo location -  //API AIzaSyCdxcXg7v2a6zKf1HQ7jhBhYDJjPgLBVA8
-# 
+# Geo location -  
+# Upload files to firebase - https://firebase.google.com/docs/storage/web/upload-files
+
+### Cypress for E2E / component testing 
+
